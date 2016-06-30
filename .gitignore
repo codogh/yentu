@@ -2,3 +2,4 @@ nbproject
 build
 vendor
 tests/config/*.xml
+composer.lock
