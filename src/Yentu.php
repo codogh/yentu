@@ -80,8 +80,8 @@ class Yentu
      */
     public static function getMigrationPathsInfo()
     {
-        $variables = Config::get('default.variables', []);
-        $otherMigrations = Config::get('default.other_migrations', []);
+        $variables = Config::get('yentu:default.variables', []);
+        $otherMigrations = Config::get('yentu:default.other_migrations', []);
         
         return array_merge(
             array(
