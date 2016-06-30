@@ -1,6 +1,6 @@
 {
     "name": "codollc/yentu",
-    "description": "A database migration tool based on cloned from ekowabaka/yentu",
+    "description": "A database migration tool based on ekowabaka/yentu",
     "license": "MIT",
     "authors": [
         {
