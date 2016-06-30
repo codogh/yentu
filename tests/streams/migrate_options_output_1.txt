@@ -1,0 +1,18 @@
+Yentu Database Migration Tool
+Version test
+
+Yentu successfully initialized.
+Yentu Database Migration Tool
+Version test
+
+Ignoring all foreign key constraints ...
+Running 1 migration(s) from 'vfs://home/yentu/migrations'
+Applying 'import' migration
+..........................................................................  26%
+..........................................................................  53%
+..........................................................................  79%
+...................................SSSSSSSSSSSSSSSSSSSSSS
+
+Migration took 10 seconds
+257 operations performed
+22 operations skipped
