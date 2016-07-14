@@ -320,6 +320,7 @@ class Postgresql extends \yentu\DatabaseManipulator
             'numeric' => 'double',
             'timestamp with time zone' => 'timestamp',
             'timestamp without time zone' => 'timestamp',
+            'time without time zone'=>'time',
             'text' => 'text',
             'boolean' => 'boolean',
             'date' => 'date',
