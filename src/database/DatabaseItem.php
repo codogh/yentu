@@ -25,6 +25,7 @@ abstract class DatabaseItem
         'unique_key' => 'UniqueKey',
         'index' => 'Index',
         'view' => 'View',
+        'sequence' => 'Sequence',
         'view_definition' => 'ViewDefinition',
         'query' => 'Query'
     );

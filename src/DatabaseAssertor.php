@@ -94,6 +94,11 @@ class DatabaseAssertor
         return $this->doesItemExist($details, 'indices');
     }
     
+    public function doesSequenceExist($details)
+    {
+        return $this->doesItemExist($details, 'sequences');
+    }
+    
     public function doesViewExist($details)
     {
         if(is_string($details))

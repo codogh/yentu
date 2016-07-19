@@ -103,6 +103,11 @@ class Table extends DatabaseItem
         return $this->create('view', $name, $this->schema);
     }
 
+    public function sequence($name)
+    {
+        return $this->create('sequence', $name, $this->schema);
+    }    
+    
     public function commitNew() {
         
     }

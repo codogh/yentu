@@ -50,6 +50,11 @@ class Begin extends DatabaseItem
         return $this->create('view', $name, $this);
     }    
     
+    public function sequence($name)
+    {
+        return $this->create('sequence', $name, $this);
+    }    
+    
     public function getName()
     {
         return $this->defaultSchema->getName();

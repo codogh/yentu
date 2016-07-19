@@ -115,6 +115,8 @@ abstract class DatabaseManipulator
     abstract protected function _dropForeignKey($details);
     abstract protected function _addIndex($details);
     abstract protected function _dropIndex($details);
+    abstract protected function _addSequence($details);
+    abstract protected function _dropSequence($details);
     abstract protected function _addView($details);
     abstract protected function _dropView($details);
     abstract protected function _changeViewDefinition($details);
