@@ -41,7 +41,8 @@ class SchemaDescription implements \ArrayAccess
     private $description = array(
         'schemata' => array(),
         'tables' => array(),
-        'views' => array()
+        'views' => array(),
+        'sequences' => array()
     );
 
     /**
@@ -535,6 +536,28 @@ class SchemaDescription implements \ArrayAccess
         $table = $this->getTable($details['from']);
         $table['foreign_keys'][$details['from']['name']]['on_update'] = $details['to']['on_update'];
         $this->setTable($details['from'], $table);
+    }
+    
+    public function addSequence($details)
+    {
+        $sequence = $details['name'];
+
+        if ($details['schema'] != '') {
+            $schemata = $this->description['schemata'];
+            $schemata[$details['schema']]['sequences'][$details['name']] = $sequence;
+            $this->description['schemata'] = $schemata;
+        } else {
+            $this->description['sequences'][$details['name']] = $sequence;
+        }
+    }
+
+    public function dropSequence($details)
+    {
+        if ($details['schema'] != '') {
+            unset($this->description['schemata'][$details['schema']]['sequences'][$details['name']]);
+        } else {
+            unset($this->description['sequences'][$details['name']]);
+        }
     }
 
     public function executeQuery()

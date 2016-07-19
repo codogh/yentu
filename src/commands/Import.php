@@ -51,6 +51,10 @@ class Import implements \clearice\Command, \yentu\Reversible
         {
             $this->importTables($description['tables']);
         }
+        if(isset($description['sequences']))
+        {
+            $this->importSequences($description['sequences']);
+        }
         if(isset($description['views']))
         {
             $this->importViews($description['views']);
@@ -154,11 +158,21 @@ class Import implements \clearice\Command, \yentu\Reversible
             $this->code->add("->schema('{$schema['name']}')");
             $this->code->addIndent();
             $this->importTables($schema['tables']);
+            $this->importSequences($schema['sequences']);
             $this->importViews($schema['views']);
             $this->code->decreaseIndent(); 
         }        
         
         $this->hasSchema = false;
+    }
+    
+    protected function importSequences($sequences)
+    {
+        foreach($sequences as $sequence)
+        {
+            $this->code->add("->sequence('{$sequence['name']}')");
+            $this->code->ln();
+        }
     }
 
     protected function importViews($views)

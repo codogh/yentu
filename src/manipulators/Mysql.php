@@ -212,6 +212,11 @@ class Mysql extends \yentu\DatabaseManipulator
             )
         );        
     }
+    
+    protected function _addSequence($details)
+    {
+        $this->query(sprintf('CREATE SEQUENCE %s', $this->buildTableName($details['name'], $details['schema'])));
+    }
 
     protected function _addView($details)
     {
@@ -383,6 +388,11 @@ class Mysql extends \yentu\DatabaseManipulator
                 $details['name']
             )
         );           
+    }
+    
+    protected function _dropSequence($details) 
+    {
+        $this->query(sprintf('DROP SEQUENCE %s', $this->buildTableName($details['name'], $details['schema'])));
     }
 
     protected function _dropView($details)

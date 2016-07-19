@@ -40,6 +40,16 @@ class Postgresql extends \yentu\DatabaseManipulator
         $this->query(sprintf('CREATE TABLE  %s ()',  $this->buildTableName($details['name'], $details['schema'])));    
     }
     
+    protected function _addSequence($details)
+    {
+        $this->query(sprintf('CREATE SEQUENCE %s', $this->buildTableName($details['name'], $details['schema'])));
+    }
+    
+    protected function _dropSequence($details) 
+    {
+        $this->query(sprintf('DROP SEQUENCE %s', $this->buildTableName($details['name'], $details['schema'])));
+    }
+    
     protected function _addView($details)
     {
         $this->setSearchField($details);

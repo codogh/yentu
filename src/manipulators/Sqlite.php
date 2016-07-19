@@ -310,7 +310,12 @@ class Sqlite extends \yentu\DatabaseManipulator
     {
         $this->query("CREATE VIEW `{$details['name']}` AS {$details['definition']}");
     }
-
+    
+    protected function _addSequence($details)
+    {
+        $this->query("CREATE SEQUENCE `{$details['name']}`");
+    }
+    
     protected function _changeColumnDefault($details) 
     {
         $this->rebuildTableFromDefinition($details['to']['table']);    
@@ -373,6 +378,11 @@ class Sqlite extends \yentu\DatabaseManipulator
     protected function _dropView($details) 
     {
         $this->query("DROP VIEW `{$details['name']}`");
+    }
+    
+    protected function _dropSequence($details)
+    {
+        $this->query("DROP SEQUENCE `{$details['name']}`");
     }
 
     public function convertTypes($type, $direction, $length) 
